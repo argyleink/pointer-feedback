@@ -1,0 +1,19 @@
+{
+  "name": "pointer-feedback",
+  "version": "1.0.0",
+  "description": "<pointer-feedback> a material design ripple effect with no dependencies",
+  "main": "src/pointer-feedback.element.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argyleink/pointer-feedback.git"
+  },
+  "author": "argyleink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/argyleink/pointer-feedback/issues"
+  },
+  "homepage": "https://github.com/argyleink/pointer-feedback#readme"
+}

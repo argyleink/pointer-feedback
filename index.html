@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>app-img</title>
+    <link rel="stylesheet" href="https://rawgit.com/argyleink/ragrid/master/ragrid.min.css">
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+      }
+      
+      .example {
+        width: 30vw;
+        height: 30vh;
+        background: hsl(0,0%,95%);
+        border-radius: 1rem;
+      }
+
+      .small-example {
+        width: 40px;
+        height: 40px;
+        background: hsl(0,0%,95%);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body grid vertically-aligned='center' horizontally-aligned='center' horizontally-distributed='around'>
+
+    <div class="example">
+      <pointer-feedback></pointer-feedback>
+    </div>
+
+    <div>
+      <div class="small-example">
+        <pointer-feedback style="--ink-ripple-accent-color: hsl(200,50%,80%)"></pointer-feedback>
+      </div>
+    </div>
+
+    <div class="example">
+      <pointer-feedback style="--ink-ripple-accent-color: hsl(200,50%,80%)"></pointer-feedback>
+    </div>
+
+    <script src="src/pointer-feedback.element.js"></script>
+  </body>
+</html>
