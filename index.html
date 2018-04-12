@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>app-img</title>
+    <title>pointer-feedback</title>
     <link rel="stylesheet" href="https://rawgit.com/argyleink/ragrid/master/ragrid.min.css">
     <style>
       body {
@@ -23,22 +23,40 @@
         background: hsl(0,0%,95%);
         border-radius: 50%;
       }
+
+      .big-example {
+        width: 90vw;
+        height: 90vh;
+        background: hsl(0,0%,95%);
+      }
+
+      .fullscreen {
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
   </head>
-  <body grid vertically-aligned='center' horizontally-aligned='center' horizontally-distributed='around'>
+  <body>
+    <div class="fullscreen" grid vertically-aligned='center' horizontally-aligned='center' horizontally-distributed='around'>
+      <div class="example">
+        <pointer-feedback></pointer-feedback>
+      </div>
 
-    <div class="example">
-      <pointer-feedback></pointer-feedback>
-    </div>
+      <div>
+        <div class="small-example">
+          <pointer-feedback style="--ink-ripple-accent-color: hsl(200,50%,80%)"></pointer-feedback>
+        </div>
+      </div>
 
-    <div>
-      <div class="small-example">
+      <div class="example">
         <pointer-feedback style="--ink-ripple-accent-color: hsl(200,50%,80%)"></pointer-feedback>
       </div>
     </div>
 
-    <div class="example">
-      <pointer-feedback style="--ink-ripple-accent-color: hsl(200,50%,80%)"></pointer-feedback>
+    <div class="fullscreen" grid vertically-aligned='center' horizontally-aligned='center' horizontally-distributed='around'>
+      <div class="big-example">
+        <pointer-feedback></pointer-feedback>
+      </div>
     </div>
 
     <script src="src/pointer-feedback.element.js"></script>
