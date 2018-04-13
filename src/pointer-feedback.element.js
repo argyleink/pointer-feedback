@@ -5,6 +5,7 @@ const STYLES = `
     top: 0; left: 0; right: 0; bottom: 0;
     overflow: hidden;
     z-index: -1;
+    contain: layout;
     --ink-ripple_accent-color: hsl(0,0%,80%);
     --ink-ripple_scale-speed: 300ms;
     --ink-ripple_transparency-speed: 200ms;
@@ -113,7 +114,7 @@ class PointerFeedback extends HTMLElement {
       this._triggerRippleOut()
     })
 
-    this.parentElement.style.overflow   = 'hidden'
+    this.parentElement.style.overflow   = 'hidden' // todo: try matching parent border radius
     this.parentElement.style.willChange = 'transform'
   }
 
@@ -192,7 +193,7 @@ class PointerFeedback extends HTMLElement {
     let speed = largest
 
     if (speed > 700) speed = 700
-    if (speed < 200) speed = 200
+    if (speed < 300) speed = 300
 
     this.styles.sheet.insertRule(`
       :host:before {
