@@ -5,8 +5,9 @@ const STYLES = `
     top: 0; left: 0; right: 0; bottom: 0;
     overflow: hidden;
     z-index: -1;
-    --ink-ripple-accent-color: hsl(0,0%,80%);
-    --ink-ripple-speed: 300ms;
+    --ink-ripple_accent-color: hsl(0,0%,80%);
+    --ink-ripple_scale-speed: 300ms;
+    --ink-ripple_transparency-speed: 200ms;
   }
 
   :host::before {
@@ -14,13 +15,13 @@ const STYLES = `
     display: block;
     content: '';
     border-radius: 50%;
-    background: var(--ink-ripple-accent-color);
+    background: var(--ink-ripple_accent-color);
     opacity: 0;
     transform: scale(0);
   }
 
   :host([animatable])::before {
-    transition: opacity .1s linear, transform var(--ink-ripple-speed) linear;
+    transition: opacity var(--ink-ripple_transparency-speed) linear, transform var(--ink-ripple_scale-speed) linear;
   }
 
   :host([mouseup][animatable])::before {
@@ -37,8 +38,8 @@ const STYLES = `
     transform: scale(1);
   }
 
-  :host([hidden]) { 
-    display: none; 
+  :host([hidden]) {
+    display: none;
   }
 `
 
@@ -180,27 +181,27 @@ class PointerFeedback extends HTMLElement {
   _positionPseduoElement(x, y) {
     let { height, width } = this.getBoundingClientRect()
 
-    // TODO: use largest to determine animation duration
-    let largest = Math.max(height, width)
+    const largest = Math.max(height, width)
 
     width   = largest * 2 + (largest / 2)
     height  = largest * 2 + (largest / 2)
 
-    let xPos = x - (width / 2)
-    let yPos = y - (height / 2)
+    const xPos  = x - (width / 2)
+    const yPos  = y - (height / 2)
 
     let speed = largest
+
     if (speed > 700) speed = 700
     if (speed < 200) speed = 200
 
-    // document.styleSheets[0].addRule(selector, rule)
     this.styles.sheet.insertRule(`
       :host:before {
         left:   ${xPos}px;
         top:    ${yPos}px;
         width:  ${width}px;
         height: ${height}px;
-        --ink-ripple-speed: ${speed}ms;
+        --ink-ripple_scale-speed: ${speed}ms;
+        --ink-ripple_transparency-speed: ${speed / 3}ms;
       }
     `, 0)
 
