@@ -43,7 +43,7 @@ const STYLES = `
     display: none;
   }
 `
-
+// todo: test getting boundingrect once, and only once
 class PointerFeedback extends HTMLElement {
 
   constructor() {
