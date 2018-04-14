@@ -8,6 +8,7 @@
       body {
         height: 100vh;
         margin: 0;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
       }
       
       .example {
@@ -28,6 +29,13 @@
         width: 90vw;
         height: 90vh;
         background: hsl(0,0%,95%);
+        text-align: center;
+      }
+
+      .big-example > h2 {
+        max-width: 500px;
+        padding: 0 2rem;
+        color: hsl(0,0%,10%);
       }
 
       .fullscreen {
@@ -49,13 +57,15 @@
       </div>
 
       <div class="example">
-        <pointer-feedback style="--ink-ripple_accent-color: hsl(200,50%,80%)"></pointer-feedback>
+        <pointer-feedback style="--pointer-feedback_accent-color: hsl(200,50%,80%)"></pointer-feedback>
       </div>
     </div>
 
     <div class="fullscreen" grid vertically-aligned='center' horizontally-aligned='center' horizontally-distributed='around'>
-      <div class="big-example">
-        <pointer-feedback style="--ink-ripple_accent-color: hsl(0,0%,100%)"></pointer-feedback>
+      <div class="big-example" grid='rows' vertically-aligned='center' horizontally-aligned='center'>
+        <pointer-feedback style="--pointer-feedback_accent-color: hsl(0,0%,100%)"></pointer-feedback>
+        <h2>Ripple is always behind the content it's next to, no transparency overlays</h2>
+        <p>Pick any <span style='color:hsl(200,90%,50%)'>color</span> you want!</p>
       </div>
     </div>
 
